@@ -8,14 +8,14 @@ typedef struct bloco{
 
 typedef struct{
     no *raiz;
-} arvore;
+} arvore;   
 
 arvore* create(void);
 int isempty(arvore*);
 no* busca(no *p, elem *x);
+no *buscapai(no*p, elem *x);
+void insere_esq(arvore*a, elem *x, elem*pai, int *erro);
 /*
- Buscar um elemento
- Buscar pai de um elemento na árvore
  Inserir elemento à esquerda de outro elemento
  Inserir elemento à direita de outro elemento
  Imprimir elementos da árvore

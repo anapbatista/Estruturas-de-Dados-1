@@ -38,3 +38,32 @@ no *busca(no *p, elem *x)
         return aux;
     }
 }
+
+no *buscapai(no *p, elem *x)
+{
+    no *aux;
+    if (p == NULL)
+    {
+        return NULL;
+    }
+    else if ((p->esq != NULL) && (p->esq->info == *x))
+    {
+        return p;
+    }
+    else if ((p->dir != NULL) && (p->dir->info == *x))
+    {
+        return (p);
+    }
+    else
+    {
+        aux = buscapai(p->esq, x);
+        if (aux = NULL)
+            aux = buscapai(p->dir, x);
+        return aux;
+    }
+}
+void insere_esq(arvore*a, elem *x, elem*pai, int *erro){
+    
+
+
+}
