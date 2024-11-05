@@ -62,8 +62,43 @@ no *buscapai(no *p, elem *x)
         return aux;
     }
 }
-void insere_esq(arvore*a, elem *x, elem*pai, int *erro){
-    
-
-
+void insere_esq(arvore *a, elem *x, elem *pai, int *erro) 
+{
+    no *aux, *p;
+    if (*pai != -1)
+    {
+        aux = busca(a->raiz, pai);
+        if ((aux != NULL) && (aux->esq == NULL))
+        {
+            p = (no *)malloc(sizeof(no));
+            if (p != NULL)
+            {
+                p->info = *x;
+                p->esq = NULL;
+                p->dir = NULL;
+                aux->esq = p;
+                *erro = 0;
+            }
+            else
+            {
+                *erro = 1;
+            }
+        }
+    }else if(*pai==-1) {
+        if(a->raiz==NULL){
+            p=(no*)malloc(sizeof(no));
+            if (p != NULL)
+            {
+                p->info = *x;
+                p->esq = NULL;
+                p->dir = NULL;
+                a->raiz = p;
+                *erro = 0;
+            }
+            else
+            {
+                *erro = 1;
+            }
+        }
+    }
 }

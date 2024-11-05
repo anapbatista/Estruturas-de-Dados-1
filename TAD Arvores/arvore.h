@@ -1,6 +1,6 @@
 //arvore dinamica e encadeada
 
-typedef char elem;
+typedef int elem;
 typedef struct bloco{
     elem info;
     struct bloco *esq, *dir;
@@ -16,7 +16,6 @@ no* busca(no *p, elem *x);
 no *buscapai(no*p, elem *x);
 void insere_esq(arvore*a, elem *x, elem*pai, int *erro);
 /*
- Inserir elemento à esquerda de outro elemento
  Inserir elemento à direita de outro elemento
  Imprimir elementos da árvore
  Finalizar árvore
