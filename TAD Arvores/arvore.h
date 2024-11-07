@@ -15,9 +15,11 @@ int isempty(arvore*);
 no* busca(no *p, elem *x);
 no *buscapai(no*p, elem *x);
 void insere_esq(arvore*a, elem *x, elem*pai, int *erro);
-/*
- Inserir elemento à direita de outro elemento
- Imprimir elementos da árvore
- Finalizar árvore
- Determinar altura da árvore*/
+void imprimir(no *raiz);
+void finaliza(arvore *a);
+void libera_mem(no*p);
+int altura(no *p);
+
+/* Inserir elemento à direita de outro elemento*/
+
 
