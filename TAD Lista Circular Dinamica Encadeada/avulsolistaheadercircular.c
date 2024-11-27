@@ -118,6 +118,7 @@ void imprime(lista *l)
         printf("%d ", aux->valor);
         aux = aux->prox;
     }
+    printf("\n");
 }
 
 int main()
