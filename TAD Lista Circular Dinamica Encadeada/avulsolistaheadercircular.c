@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 
 typedef struct no_l
 {
@@ -122,13 +124,13 @@ int main()
 {
 
     lista *l = cria();
-    insere(l, 1, 0);
+    insereadireitade(l, 1, 0);
     imprime(l);
-    insere(l, 3, 1);
+    insereadireitade(l, 3, 1);
     imprime(l);
-    insere(l, 2, 1);
+    insereadireitade(l, 2, 1);
     imprime(l);
-    insere(l, 4, 3);
+    insereadireitade(l, 4, 3);
     imprime(l);
 
     return 0;
