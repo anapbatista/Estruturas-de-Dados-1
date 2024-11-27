@@ -63,27 +63,24 @@ no *estanalista(lista *l, int x)
 
 void insereadireitade(lista *l, int x, int y)
 {
-
     if (!estavazia(l))
     {
         no *novo = (no *)malloc(sizeof(no));
         if (novo != NULL)
         {
-
             no *aux = estanalista(l, y);
             if (aux != NULL)
             {
-                // inserção no fim
+                // Inserção no fim
                 if (aux->prox == l->cabeca)
                 {
                     novo->valor = x;
-                    novo->prox = aux;
                     novo->prox = l->cabeca;
                     novo->ant = aux;
                     l->cabeca->ant = novo;
                     aux->prox = novo;
                 }
-                // inserção no meio
+                // Inserção no meio
                 else
                 {
                     novo->valor = x;
@@ -97,6 +94,7 @@ void insereadireitade(lista *l, int x, int y)
     }
     else
     {
+        // Lista vazia: insere o primeiro elemento
         no *novo = (no *)malloc(sizeof(no));
         if (novo != NULL)
         {
@@ -110,16 +108,42 @@ void insereadireitade(lista *l, int x, int y)
     l->cabeca->valor++;
 }
 
+
+
 void imprime(lista *l)
 {
     no *aux = l->cabeca->prox;
-    while (aux->prox != l->cabeca)
+    while (aux != l->cabeca)
     {
         printf("%d ", aux->valor);
         aux = aux->prox;
     }
     printf("\n");
 }
+
+void libera(lista *l)
+{
+    if (l != NULL)
+    {
+        no *aux = l->cabeca->prox;
+        no *temp;
+
+        // Percorre a lista e libera cada nó
+        while (aux != l->cabeca)
+        {
+            temp = aux;
+            aux = aux->prox;
+            free(temp);
+        }
+
+        // Libera o nó cabeça
+        free(l->cabeca);
+
+        // Libera a estrutura da lista
+        free(l);
+    }
+}
+
 
 int main()
 {
@@ -133,6 +157,7 @@ int main()
     imprime(l);
     insereadireitade(l, 4, 3);
     imprime(l);
+    libera(l);
 
     return 0;
 }
